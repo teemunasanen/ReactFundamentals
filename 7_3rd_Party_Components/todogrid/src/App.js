@@ -26,9 +26,9 @@ function App() {
       <button onClick={addTodo}>Add</button>
       <div className='ag-theme-material' style={{ height: 600, width: 600, margin: 'auto' }}>
         <AgGridReact rowData={todos}>
-          <AgGridColumn field='description' sortable={true} filter={true}></AgGridColumn>
-          <AgGridColumn field='date' sortable={true} filter={true}></AgGridColumn>
-          <AgGridColumn field='status' sortable={true} filter={true}></AgGridColumn>
+          <AgGridColumn field='description' suppressMovable={true} sortable={true} filter={true}></AgGridColumn>
+          <AgGridColumn field='date' suppressMovable={true} sortable={true} filter={true}></AgGridColumn>
+          <AgGridColumn field='status' suppressMovable={true} sortable={true} filter={true}></AgGridColumn>
         </AgGridReact>
       </div>
     </div>
