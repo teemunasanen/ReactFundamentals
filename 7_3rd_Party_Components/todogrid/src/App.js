@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 
+import { AgGridColumn, AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-material.css';
+
 function App() {
   const [todo, setTodo] = useState({description: '', date: '', status: ''});
   const [todos, setTodos] = useState([]);
@@ -20,18 +24,13 @@ function App() {
       <input placeholder="Date" name="date" value={todo.date} onChange={inputChanged}/>
       <input placeholder="Status" name="status" value={todo.status} onChange={inputChanged}/>
       <button onClick={addTodo}>Add</button>
-      <table>
-        <tbody>
-        {
-         todos.map((todo, index) => 
-           <tr key={index}>
-             <td>{todo.description}</td>
-             <td>{todo.date}</td>
-             <td>{todo.status}</td>
-           </tr>)
-         }
-         </tbody> 
-       </table>
+      <div className='ag-theme-material' style={{ height: 600, width: 600, margin: 'auto' }}>
+        <AgGridReact rowData={todos}>
+          <AgGridColumn field='description'></AgGridColumn>
+          <AgGridColumn field='date'></AgGridColumn>
+          <AgGridColumn field='status'></AgGridColumn>
+        </AgGridReact>
+      </div>
     </div>
   );
 }
