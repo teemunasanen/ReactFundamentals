@@ -25,7 +25,7 @@ function App() {
       <input placeholder="Status" name="status" value={todo.status} onChange={inputChanged}/>
       <button onClick={addTodo}>Add</button>
       <div className='ag-theme-material' style={{ height: 600, width: 600, margin: 'auto' }}>
-        <AgGridReact rowData={todos}>
+        <AgGridReact rowData={todos} animateRows={true}>
           <AgGridColumn field='description' suppressMovable={true} sortable={true} filter={true}></AgGridColumn>
           <AgGridColumn field='date' suppressMovable={true} sortable={true} filter={true}></AgGridColumn>
           <AgGridColumn field='status' suppressMovable={true} sortable={true} filter={true}></AgGridColumn>
