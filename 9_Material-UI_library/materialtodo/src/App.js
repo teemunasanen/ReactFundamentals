@@ -7,6 +7,8 @@ import TextField from '@mui/material/TextField';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
+import SaveIcon from '@mui/icons-material/Save'
 
 function App() {
   const [todo, setTodo] = useState({description: '', date: ''});
@@ -29,19 +31,19 @@ function App() {
       <AppBar position='static'>
         <Toolbar>
           <Typography variant='h6'>Todolist</Typography>
-          </Toolbar>
+        </Toolbar>
       </AppBar>
       <TextField style={{marginRight: 10}} label="Description" name="description" variant="standard" value={todo.description} onChange={inputChanged} />
       <TextField style={{marginRight: 10}} label="Date" name="date" variant="standard" value={todo.date} onChange={inputChanged}/>
-      <Button style= {{margin: 10}} color='primary' variant='outlined' onClick={addTodo}>Add</Button>
+      <Button style= {{margin: 10}} color='primary' variant='outlined' onClick={addTodo}><SaveIcon style={{marginRight: 10}} />Add</Button>
       <table>
         <tbody>
        {
           todos.map((todo, index) => 
             <tr key={index}>
-              <td>{todo.description}</td>
+             <td>{todo.description}</td>
              <td>{todo.date}</td>
-             <td><IconButton size='small' color='secondary' onClick={() => deleteTodo(index)}><DeleteIcon /></IconButton></td>
+             <td><Tooltip title='Delete todo'><IconButton size='small' color='secondary' onClick={() => deleteTodo(index)}><DeleteIcon /></IconButton></Tooltip></td>
             </tr>)
         }
         </tbody>
