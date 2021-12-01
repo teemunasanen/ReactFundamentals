@@ -12,3 +12,7 @@
 #### Create React project
 #### Todo list Firebase app
 #### Add todo functionality
+----
+>### Exercises
+>* #### Firebase realtime database
+>* #### Bookstore front end
