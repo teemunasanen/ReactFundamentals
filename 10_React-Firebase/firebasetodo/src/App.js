@@ -19,8 +19,16 @@ function App() {
   const fetchItems = () => {
     fetch('https://todolist-65719-default-rtdb.europe-west1.firebasedatabase.app/items/.json')
     .then(response => response.json())
-    .then(data => setTodos(Object.values(data)))
+    .then(data => addKeys(data))
     .catch(err => console.error(err))
+  }
+
+  //Add keys to the todo objects
+  const addKeys = (data) =>{
+    const keys = Object.keys(data);
+    const valueKeys = Object.values(data).map((item, index) =>
+    Object.defineProperty(item, 'id', {value: keys[index]}));
+    setTodos(valueKeys);
   }
 
   const addTodo = (newTodo) => {
