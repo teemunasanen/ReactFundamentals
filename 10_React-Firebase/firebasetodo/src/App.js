@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { AgGridColumn, AgGridReact } from 'ag-grid-react';
+import Appbar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 import './App.css';
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -21,6 +24,11 @@ function App() {
 
   return (
     <div className="App">
+      <Appbar position='static'>
+        <Toolbar>
+          <Typography variant='h5' noWrap>TodoList</Typography>
+        </Toolbar>
+      </Appbar>
       <div className='ag-theme-material' style={{ height: 400, width: 600, margin: 'auto' }}>
         <AgGridReact rowData={todos}>
           <AgGridColumn sortable={true} filter={true} field='description' />
