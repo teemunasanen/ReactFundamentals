@@ -10,3 +10,11 @@
 #### Todolist testing
 > todolist-testing app
 #### Deployment
+> Heroku
+----
+>### Exercises
+>* #### Test case
+> Add Clear button to Todo app that removes all todos
+> Add test for removing todos
+>* #### Heroku Bookstore
+> Deploy Firebase Bookstore React app to the Heroku cloud server

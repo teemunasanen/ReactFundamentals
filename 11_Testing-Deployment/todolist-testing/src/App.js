@@ -19,6 +19,10 @@ function App() {
     setTodos(todos.filter((todo, index) => index !== row));
   };
 
+  const clearTodos = () => {
+    setTodos([]);
+  };
+
   return (
     <div className="App">
       <input
@@ -34,6 +38,7 @@ function App() {
         onChange={inputChanged}
       />
       <button onClick={addTodo}>Add</button>
+      <button onClick={clearTodos}>Clear</button>
       <TodoTable todos={todos} deleteTodo={deleteTodo} />
     </div>
   );

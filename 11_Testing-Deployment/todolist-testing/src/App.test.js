@@ -21,8 +21,13 @@ test('add todo', () => {
   const date = getByPlaceholderText('Date');
   fireEvent.change(date, { target: { value: '29.11.2020' }})
 
-  const button = getByText('Add');
-  fireEvent.click(button);
+  const buttonAdd = getByText('Add');
+  fireEvent.click(buttonAdd);
 
   expect(screen.getByText('Go to coffee')).toBeInTheDocument();
+
+  const buttonClear = getByText('Clear');
+  fireEvent.click(buttonClear);
+
+  expect(container).not.toHaveTextContent('');
 })
